@@ -1,0 +1,16 @@
+{
+  "name": "polymap",
+  "version": "1.0.0",
+  "repository": "https://github.com/SmolSoftBoi/polycule-next.git",
+  "author": "Kristian Matthews-Kennington <kristian@matthews-kennington.com>",
+  "devDependencies": {
+    "supabase": "^2.26.9"
+  },
+  "scripts": {
+    "sup:init":    "supabase init",
+    "sup:start":   "supabase start",
+    "sup:stop":    "supabase stop",
+    "db:push":     "supabase db push --linked",
+    "db:types":    "supabase gen types typescript --local > apps/web/src/types/supabase.ts"
+  }
+}
