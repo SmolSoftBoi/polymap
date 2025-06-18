@@ -1,0 +1,9 @@
+# Exclude heavy, generated, or unsafe artifacts
+node_modules/
+.supabase/
+public/user-uploads/
+coverage/
+playwright-report/
+*.log
+*.pem
+*.stl
