@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1   # fast monorepo installs
-      - run: bun install             # or yarn install
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+      - run: yarn install --immutable
       - run: npx supabase login --token ${{ secrets.SUPA_PAT }}
       - run: supabase link --project-ref ${{ secrets.SUPA_REF }}
       - run: supabase db push
