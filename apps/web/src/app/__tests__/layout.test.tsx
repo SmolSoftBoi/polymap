@@ -7,7 +7,7 @@ vi.mock('next/font/google', () => ({
   Geist_Mono: () => ({ variable: '' })
 }));
 
-import RootLayout from '../layout';
+import { RootLayout } from '../components/RootLayout';
 
 it('renders children', () => {
   render(
