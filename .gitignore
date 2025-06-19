@@ -1,0 +1,2 @@
+# Global ignore rules
+**/package-lock.json
