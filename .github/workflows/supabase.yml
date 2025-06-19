@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1   # fast monorepo installs
       - run: bun install             # or yarn install
-      - run: npx supabase login --access-token ${{ secrets.SUPA_PAT }}
+      - run: npx supabase login --token ${{ secrets.SUPA_PAT }}
       - run: supabase link --project-ref ${{ secrets.SUPA_REF }}
       - run: supabase db push
       - run: supabase config push
