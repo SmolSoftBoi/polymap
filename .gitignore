@@ -1,2 +1,6 @@
 # Global ignore rules
 **/package-lock.json
+node_modules/
+.next/
+.yarn/install-state.gz
+apps/web/test-results/

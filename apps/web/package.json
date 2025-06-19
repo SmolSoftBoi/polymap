@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e:ci": "playwright test"
   },
   "dependencies": {
     "next": "15.3.4",
@@ -15,14 +18,23 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.9",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^15",
+    "@testing-library/user-event": "^14",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4",
+    "autoprefixer": "^10",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "jsdom": "^24",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^5",
+    "vitest": "^1"
   }
 }

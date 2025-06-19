@@ -15,7 +15,12 @@
     "sup:start": "supabase start",
     "sup:stop": "supabase stop",
     "db:push": "supabase db push --linked",
-    "db:types": "supabase gen types typescript --local > apps/web/src/types/supabase.ts"
+    "db:types": "supabase gen types typescript --local > apps/web/src/types/supabase.ts",
+    "lint": "yarn workspaces foreach -ptA run lint",
+    "typecheck": "yarn workspaces foreach -ptA run typecheck",
+    "test": "yarn workspaces foreach -ptA run test",
+    "e2e:ci": "yarn workspaces foreach -ptA run e2e:ci",
+    "build": "yarn workspaces foreach -ptA run build"
   },
   "packageManager": "yarn@4.9.2"
 }
