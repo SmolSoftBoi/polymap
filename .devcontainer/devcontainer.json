@@ -1,0 +1,19 @@
+{
+  "name": "Polymap Dev",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/deno:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18",
+      "installYarn": true
+    },
+    "ghcr.io/devcontainers-contrib/features/supabase-cli:latest": {}
+  },
+  "postCreateCommand": "yarn install --immutable",
+  "customizations": {
+    "vscode": {
+      "extensions": ["denoland.vscode-deno"]
+    }
+  },
+  "remoteUser": "node"
+}
