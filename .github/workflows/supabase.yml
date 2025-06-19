@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: yarn
+      - run: corepack enable
       - run: yarn install --immutable
       - run: npx supabase login --token ${{ secrets.SUPA_PAT }}
       - run: supabase link --project-ref ${{ secrets.SUPA_REF }}

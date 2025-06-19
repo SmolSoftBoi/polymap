@@ -5,11 +5,11 @@
     "ghcr.io/devcontainers/features/deno:1": {},
     "ghcr.io/devcontainers/features/node:1": {
       "version": "18",
-      "installYarn": true
+      "installYarn": false
     },
     "ghcr.io/devcontainers-contrib/features/supabase-cli:latest": {}
   },
-  "postCreateCommand": "yarn install --immutable",
+  "postCreateCommand": "corepack enable && yarn install --immutable && npx playwright install --with-deps",
   "customizations": {
     "vscode": {
       "extensions": ["denoland.vscode-deno"]
