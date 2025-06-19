@@ -9,7 +9,7 @@
     },
     "ghcr.io/devcontainers-contrib/features/supabase-cli:latest": {}
   },
-  "postCreateCommand": "corepack enable && yarn install --immutable",
+  "postCreateCommand": "corepack enable && yarn install --immutable && npx playwright install --with-deps",
   "customizations": {
     "vscode": {
       "extensions": ["denoland.vscode-deno"]
