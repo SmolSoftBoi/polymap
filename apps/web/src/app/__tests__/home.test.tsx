@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import Home from '../page';
+import { HomePage } from '../components/HomePage';
 
 it('shows deploy button', () => {
-  render(<Home />);
+  render(<HomePage />);
   expect(screen.getByRole('link', { name: /deploy now/i })).toBeInTheDocument();
 });
