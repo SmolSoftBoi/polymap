@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex min-h-screen flex-col gap-16 p-8 sm:p-20">
+          <Header title="Polymap" />
+          {children}
+          <Footer links={[{ href: '/privacy', label: 'Privacy' }, { href: '/terms', label: 'Terms' }]} />
+        </div>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ import type { FC } from 'react';
 /** Props for {@link Demo}. */
 export interface DemoProps {
   /** Message to display. */
-  message: string;
+  message?: string;
 }
 
 /**

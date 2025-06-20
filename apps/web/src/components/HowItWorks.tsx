@@ -11,7 +11,7 @@ export interface Step {
   /** Title of the step. */
   title: string;
   /** Detailed explanation. */
-  description: string;
+  description?: string;
 }
 
 /** Props for {@link HowItWorks}. */
