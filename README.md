@@ -9,6 +9,7 @@ corepack enable
 Use Yarn commands to work across all workspaces:
 
 ```bash
+yarn dev
 yarn lint --fix
 yarn typecheck
 yarn test
