@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FeatureHighlights } from "../components/FeatureHighlights";
 
 /** Landing page component. */
 
@@ -26,6 +27,14 @@ export default function Home() {
             Save and see your changes instantly.
           </li>
         </ol>
+
+        <FeatureHighlights
+          features={[
+            { icon: '🗺️', text: 'Interactive maps' },
+            { icon: '📡', text: 'Real-time updates' },
+            { icon: '☁️', text: 'Cloud sync' },
+          ]}
+        />
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
