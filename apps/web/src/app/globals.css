@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background-start: #ffffff;
+  --background-end: #f7f7f7;
+  --background: var(--background-start);
   --foreground: #171717;
+  --accent: linear-gradient(
+    90deg,
+    #e70000,
+    #ff8c00,
+    #ffef00,
+    #00811f,
+    #0044ff,
+    #760089
+  );
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-background: var(--background-start);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background-start: #0a0a0a;
+    --background-end: #181818;
+    --background: var(--background-start);
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+  background: var(--background-start);
+  background-image: linear-gradient(
+    to bottom,
+    var(--background-start),
+    var(--background-end)
+  );
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.accent {
+  background-image: var(--accent);
+  color: #fff;
+}
+
+.accent-rainbow {
+  --accent: linear-gradient(
+    90deg,
+    #e70000,
+    #ff8c00,
+    #ffef00,
+    #00811f,
+    #0044ff,
+    #760089
+  );
+}
+
+.accent-trans {
+  --accent: linear-gradient(
+    90deg,
+    #5bcefa,
+    #f5a9b8,
+    #ffffff,
+    #f5a9b8,
+    #5bcefa
+  );
+}
+
+.accent-bi {
+  --accent: linear-gradient(90deg, #d60270, #9b4f96, #0038a8);
 }

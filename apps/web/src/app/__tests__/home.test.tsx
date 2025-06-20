@@ -4,5 +4,7 @@ import Home from '../page';
 
 it('shows demo link', () => {
   render(<Home />);
-  expect(screen.getByRole('link', { name: /try the demo/i })).toBeInTheDocument();
+  const link = screen.getByRole('link', { name: /try the demo/i });
+  expect(link).toBeInTheDocument();
+  expect(link).toHaveClass('accent');
 });
