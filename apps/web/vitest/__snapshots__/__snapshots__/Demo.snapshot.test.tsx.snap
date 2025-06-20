@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Demo snapshot > matches 1`] = `
+<div
+  class="rounded border border-dashed border-gray-400 p-4 text-center"
+>
+  Snapshot
+   😊
+</div>
+`;
