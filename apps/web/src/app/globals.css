@@ -34,6 +34,7 @@
 }
 
 body {
+  background: var(--background-start);
   background-image: linear-gradient(
     to bottom,
     var(--background-start),
