@@ -14,11 +14,13 @@
   "dependencies": {
     "next": "15.3.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-force-graph": "^1.47.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@playwright/test": "^1",
+    "@storybook/react": "^9.0.12",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.9",
     "@testing-library/jest-dom": "^6",
