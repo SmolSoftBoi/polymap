@@ -39,7 +39,7 @@ export default function Home() {
         ]}
       />
       <Link
-        className="rounded-full px-5 py-3 transition-colors hover:opacity-90"
+        className="accent rounded-full px-5 py-3 transition-colors hover:opacity-90"
         href="/demo"
       >
         Try the demo

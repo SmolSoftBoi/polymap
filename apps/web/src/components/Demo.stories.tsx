@@ -11,5 +11,5 @@ export default meta;
 type Story = StoryObj<typeof Demo>;
 
 export const Default: Story = {
-  args: { message: 'Hello Demo!' },
+  args: { message: 'Sample network' },
 };

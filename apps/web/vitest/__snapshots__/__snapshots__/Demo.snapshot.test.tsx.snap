@@ -2,9 +2,14 @@
 
 exports[`Demo snapshot > matches 1`] = `
 <div
-  class="rounded border border-dashed border-gray-400 p-4 text-center"
+  class="space-y-4 rounded border border-dashed border-gray-400 p-4 text-center"
 >
-  Snapshot
-   😊
+  <p>
+    Snapshot
+     😊
+  </p>
+  <div
+    class="h-64"
+  />
 </div>
 `;
