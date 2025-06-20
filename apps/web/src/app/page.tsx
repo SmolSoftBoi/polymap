@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FeatureHighlights } from "../components/FeatureHighlights";
+import { HowItWorks } from "../components/HowItWorks";
 
 /** Landing page component. */
 
@@ -33,6 +34,26 @@ export default function Home() {
             { icon: '🗺️', text: 'Interactive maps' },
             { icon: '📡', text: 'Real-time updates' },
             { icon: '☁️', text: 'Cloud sync' },
+          ]}
+        />
+
+        <HowItWorks
+          steps={[
+            {
+              icon: '1️⃣',
+              title: 'Add connections',
+              description: 'Upload your nodes and links.',
+            },
+            {
+              icon: '2️⃣',
+              title: 'Explore',
+              description: 'Navigate the interactive graph.',
+            },
+            {
+              icon: '3️⃣',
+              title: 'Share',
+              description: 'Collaborate with your team.',
+            },
           ]}
         />
 
