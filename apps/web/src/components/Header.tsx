@@ -14,11 +14,10 @@ export interface HeaderProps {
  */
 export const Header: FC<HeaderProps> = ({ title }) => {
   return (
-    <header className="bg-background px-4 py-2 text-foreground">
+    <header className="bg-background text-foreground px-4 py-2">
       <Link className="text-xl font-bold no-underline" href="/">
         {title}
       </Link>
     </header>
   );
 };
-
