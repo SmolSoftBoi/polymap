@@ -10,6 +10,9 @@
   "devDependencies": {
     "supabase": "^2.26.9"
   },
+  "engines": {
+    "node": ">=18.17"
+  },
   "scripts": {
     "sup:init": "supabase init",
     "sup:start": "supabase start",
