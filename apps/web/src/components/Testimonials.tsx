@@ -25,7 +25,7 @@ export const Testimonials: FC<TestimonialsProps> = ({ testimonials }) => {
       {testimonials.map((t, index) => (
         <li className="space-y-1" key={index}>
           <blockquote className="italic">{t.quote}</blockquote>
-          <cite className="not-italic text-sm text-gray-500">— {t.author}</cite>
+          <cite className="text-sm text-gray-500 not-italic">— {t.author}</cite>
         </li>
       ))}
     </ul>
