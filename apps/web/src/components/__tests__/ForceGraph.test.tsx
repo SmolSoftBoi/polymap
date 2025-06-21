@@ -1,5 +1,3 @@
-// Stub AFRAME before importing the graph to avoid runtime errors.
-(globalThis as { AFRAME?: Record<string, unknown> }).AFRAME = {};
 import { render } from '@testing-library/react';
 import { ForceGraph } from '../ForceGraph';
 
