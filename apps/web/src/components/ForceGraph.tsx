@@ -45,17 +45,6 @@ export const ForceGraph: FC<ForceGraphProps> = ({ data }) => {
       {size.width > 0 && size.height > 0 && (
         <ForceGraph2D
           graphData={data}
-          nodeLabel={node => (node as ForceGraphNode).name ?? String(node.id)}
-          nodeCanvasObject={(node, ctx, scale) => {
-            const n = node as ForceGraphNode;
-            const label = n.name ?? String(n.id);
-            const fontSize = 12 / scale;
-            ctx.font = `${fontSize}px sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = '#000';
-            ctx.fillText(label, node.x ?? 0, node.y ?? 0);
-          }}
           width={size.width}
           height={size.height}
         />
