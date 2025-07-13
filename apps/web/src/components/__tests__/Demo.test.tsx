@@ -25,4 +25,14 @@ describe('Demo', () => {
       expect(node.val).toBeDefined();
     }
   });
+
+  it('passes link names to ForceGraph', () => {
+    render(<Demo />);
+    expect(mockFG).toHaveBeenCalled();
+    const firstCall = mockFG.mock.calls[0] as unknown[];
+    const { links } = (firstCall[0] as { data: { links: { name?: string }[] } }).data;
+    for (const link of links) {
+      expect(link.name).toBeDefined();
+    }
+  });
 });
