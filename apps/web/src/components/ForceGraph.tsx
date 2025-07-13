@@ -12,8 +12,8 @@ const ForceGraph2D = dynamic(
 /** Props for {@link ForceGraph}. */
 export interface ForceGraphProps {
   data: { nodes: NodeObject[]; links: LinkObject[] };
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 /**
