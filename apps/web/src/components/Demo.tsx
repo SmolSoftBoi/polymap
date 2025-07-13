@@ -6,9 +6,9 @@ import { ForceGraph, type ForceGraphNode } from './ForceGraph';
 
 const demoData: { nodes: ForceGraphNode[]; links: LinkObject[] } = {
   nodes: [
-    { id: 'you', name: 'You' },
-    { id: 'partner', name: 'Partner' },
-    { id: 'friend', name: 'Friend' },
+    { id: 'you', name: 'You', val: 2 },
+    { id: 'partner', name: 'Partner', val: 1 },
+    { id: 'friend', name: 'Friend', val: 1 },
   ],
   links: [
     { source: 'you', target: 'partner' },
@@ -24,6 +24,8 @@ export interface DemoProps {
 
 /**
  * Renders a small force-directed graph with an optional heading.
+ *
+ * Nodes include a `val` attribute that controls their display size.
  */
 export const Demo: FC<DemoProps> = ({ message = 'Example polycule' }) => {
   return (
