@@ -1,18 +1,18 @@
 'use client';
 
 import type { FC } from 'react';
-import type { LinkObject, NodeObject } from 'force-graph';
-import { ForceGraph } from './ForceGraph';
+import type { LinkObject } from 'force-graph';
+import { ForceGraph, type ForceGraphNode } from './ForceGraph';
 
-const demoData: { nodes: NodeObject[]; links: LinkObject[] } = {
+const demoData: { nodes: ForceGraphNode[]; links: LinkObject[] } = {
   nodes: [
-    { id: 'You' },
-    { id: 'Partner' },
-    { id: 'Friend' },
+    { id: 'you', name: 'You' },
+    { id: 'partner', name: 'Partner' },
+    { id: 'friend', name: 'Friend' },
   ],
   links: [
-    { source: 'You', target: 'Partner' },
-    { source: 'You', target: 'Friend' },
+    { source: 'you', target: 'partner' },
+    { source: 'you', target: 'friend' },
   ],
 } as const;
 
