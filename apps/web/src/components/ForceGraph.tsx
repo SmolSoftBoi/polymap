@@ -28,14 +28,24 @@ export interface ForceGraphProps {
    * Auto-assign node colors by this field.
    *
    * Accepts a key string or accessor function.
-   */
+  */
   nodeAutoColorBy?: string | ((node: ForceGraphNode) => string | null) | null;
+  /**
+   * Auto-assign link colors by this field.
+   *
+   * Accepts a key string or accessor function.
+   */
+  linkAutoColorBy?: string | ((link: ForceGraphLink) => string | null) | null;
 }
 
 /**
  * Renders an interactive force-directed graph.
  */
-export const ForceGraph: FC<ForceGraphProps> = ({ data, nodeAutoColorBy }) => {
+export const ForceGraph: FC<ForceGraphProps> = ({
+  data,
+  nodeAutoColorBy,
+  linkAutoColorBy,
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
 
@@ -61,6 +71,7 @@ export const ForceGraph: FC<ForceGraphProps> = ({ data, nodeAutoColorBy }) => {
           width={size.width}
           height={size.height}
           nodeAutoColorBy={nodeAutoColorBy}
+          linkAutoColorBy={linkAutoColorBy}
         />
       )}
     </div>

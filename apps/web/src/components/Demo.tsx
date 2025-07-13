@@ -31,7 +31,11 @@ export const Demo: FC<DemoProps> = ({ message = 'Example polycule' }) => {
     <div className="space-y-4 rounded border border-dashed border-gray-400 p-4 text-center">
       <p>{message} 😊</p>
       <div className="h-64">
-        <ForceGraph data={demoData} nodeAutoColorBy={"id"} />
+        <ForceGraph
+          data={demoData}
+          nodeAutoColorBy={"id"}
+          linkAutoColorBy="name"
+        />
       </div>
     </div>
   );
