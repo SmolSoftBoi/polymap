@@ -15,5 +15,6 @@ export const Default: Story = {
       nodes: [{ id: '1' }, { id: '2' }],
       links: [{ source: '1', target: '2' }],
     },
+    nodeAutoColorBy: 'id',
   },
 };

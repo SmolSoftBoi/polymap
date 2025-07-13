@@ -24,12 +24,18 @@ export interface ForceGraphLink extends LinkObject {
 
 export interface ForceGraphProps {
   data: { nodes: ForceGraphNode[]; links: ForceGraphLink[] };
+  /**
+   * Auto-assign node colors by this field.
+   *
+   * Accepts a key string or accessor function.
+   */
+  nodeAutoColorBy?: string | ((node: ForceGraphNode) => string | null) | null;
 }
 
 /**
  * Renders an interactive force-directed graph.
  */
-export const ForceGraph: FC<ForceGraphProps> = ({ data }) => {
+export const ForceGraph: FC<ForceGraphProps> = ({ data, nodeAutoColorBy }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
 
@@ -54,6 +60,7 @@ export const ForceGraph: FC<ForceGraphProps> = ({ data }) => {
           graphData={data}
           width={size.width}
           height={size.height}
+          nodeAutoColorBy={nodeAutoColorBy}
         />
       )}
     </div>

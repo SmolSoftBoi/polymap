@@ -21,4 +21,12 @@ describe('ForceGraph', () => {
     );
     expect(container.querySelector('.h-full.w-full')).toBeInTheDocument();
   });
+
+  it('accepts nodeAutoColorBy prop', () => {
+    expect(() =>
+      render(
+        <ForceGraph data={{ nodes: [], links: [] }} nodeAutoColorBy="group" />
+      )
+    ).not.toThrow();
+  });
 });
