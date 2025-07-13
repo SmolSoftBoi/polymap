@@ -17,8 +17,13 @@ export interface ForceGraphNode extends NodeObject {
   val?: number;
 }
 
+export interface ForceGraphLink extends LinkObject {
+  /** Optional display name for the link. */
+  name?: string;
+}
+
 export interface ForceGraphProps {
-  data: { nodes: ForceGraphNode[]; links: LinkObject[] };
+  data: { nodes: ForceGraphNode[]; links: ForceGraphLink[] };
 }
 
 /**
