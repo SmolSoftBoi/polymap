@@ -13,6 +13,8 @@ const ForceGraph2D = dynamic(
 export interface ForceGraphNode extends NodeObject {
   /** Optional display name for the node. */
   name?: string;
+  /** Optional numeric value used for node sizing. */
+  val?: number;
 }
 
 export interface ForceGraphProps {
