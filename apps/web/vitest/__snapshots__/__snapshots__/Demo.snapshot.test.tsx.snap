@@ -10,6 +10,10 @@ exports[`Demo snapshot > matches 1`] = `
   </p>
   <div
     class="h-64"
-  />
+  >
+    <div
+      class="h-full w-full"
+    />
+  </div>
 </div>
 `;
