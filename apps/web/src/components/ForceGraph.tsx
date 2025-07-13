@@ -12,11 +12,13 @@ const ForceGraph2D = dynamic(
 /** Props for {@link ForceGraph}. */
 export interface ForceGraphProps {
   data: { nodes: NodeObject[]; links: LinkObject[] };
+  width: number;
+  height: number;
 }
 
 /**
  * Renders an interactive force-directed graph.
  */
-export const ForceGraph: FC<ForceGraphProps> = ({ data }) => {
-  return <ForceGraph2D graphData={data} />;
+export const ForceGraph: FC<ForceGraphProps> = ({ data, width, height }) => {
+  return <ForceGraph2D graphData={data} width={width} height={height} />;
 };
