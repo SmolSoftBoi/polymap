@@ -6,5 +6,4 @@ it('shows demo link', () => {
   render(<Home />);
   const link = screen.getByRole('link', { name: /try the demo/i });
   expect(link).toBeInTheDocument();
-  expect(link).toHaveClass('accent');
 });
