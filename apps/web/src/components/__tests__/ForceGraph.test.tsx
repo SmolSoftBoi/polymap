@@ -29,4 +29,12 @@ describe('ForceGraph', () => {
       )
     ).not.toThrow();
   });
+
+  it('accepts linkAutoColorBy prop', () => {
+    expect(() =>
+      render(
+        <ForceGraph data={{ nodes: [], links: [] }} linkAutoColorBy="group" />
+      )
+    ).not.toThrow();
+  });
 });
