@@ -26,5 +26,8 @@
     "e2e:ci": "yarn workspaces foreach -ptA run e2e:ci",
     "build": "yarn workspaces foreach -ptA run build"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.2",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.51.0"
+  }
 }
