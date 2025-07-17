@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import { SignInForm } from '@/components/SignInForm'
+
+/** Metadata for the sign-in page. */
+export const metadata: Metadata = {
+  title: 'Sign in - Polymap',
+  description: 'Access your account to manage your polycule maps.',
+}
 
 /** Page allowing users to sign in. */
 export default function SignInPage() {

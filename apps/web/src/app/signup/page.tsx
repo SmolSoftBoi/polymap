@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import { SignUpForm } from '@/components/SignUpForm'
+
+/** Metadata for the sign-up page. */
+export const metadata: Metadata = {
+  title: 'Create account - Polymap',
+  description: 'Sign up to visualise and share your polycule.',
+}
 
 /** Page allowing users to register. */
 export default function SignUpPage() {

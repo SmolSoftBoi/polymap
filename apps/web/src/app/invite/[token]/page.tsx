@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import { InviteAuthForm } from '@/components/InviteAuthForm'
+
+/** Metadata for the invite page. */
+export const metadata: Metadata = {
+  title: 'Invitation - Polymap',
+  description: 'Complete your invite to join Polymap.',
+}
 
 /** Page for completing an invite with a token. */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
