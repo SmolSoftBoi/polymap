@@ -1,7 +1,7 @@
 'use client'
 
 import { type FormEvent, type FC, useState } from 'react'
-import { getSupabaseClient } from '@/utils/supabase'
+import { signIn } from '@/actions/auth'
 
 /** Props for {@link SignInForm}. */
 export interface SignInFormProps {
@@ -20,12 +20,9 @@ export const SignInForm: FC<SignInFormProps> = ({ onSuccess }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
-    const { error } = await getSupabaseClient().auth.signInWithPassword({
-      email,
-      password
-    })
+    const { error } = await signIn({ email, password })
     if (error) {
-      setError(error.message)
+      setError(error)
       return
     }
     onSuccess?.()

@@ -2,10 +2,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 
-const signIn = vi.fn(async () => ({ error: null }))
-vi.mock('../../utils/supabase', () => ({
-  getSupabaseClient: () => ({ auth: { signInWithPassword: signIn } })
-}))
+vi.mock('../../actions/auth', () => ({ signIn: vi.fn(async () => ({ error: null })) }))
+import { signIn } from '../../actions/auth'
 
 import { SignInForm } from '../SignInForm'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { type FormEvent, type FC, useState } from 'react'
-import { getSupabaseClient } from '@/utils/supabase'
+import { signUp } from '@/actions/auth'
 
 /** Props for {@link SignUpForm}. */
 export interface SignUpFormProps {
@@ -20,12 +20,9 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onSuccess }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
-    const { error } = await getSupabaseClient().auth.signUp({
-      email,
-      password
-    })
+    const { error } = await signUp({ email, password })
     if (error) {
-      setError(error.message)
+      setError(error)
       return
     }
     onSuccess?.()

@@ -3,6 +3,7 @@
 import { useState, useEffect, type FC } from 'react'
 import Link from 'next/link'
 import { getSupabaseClient } from '@/utils/supabase'
+import { signOut as signOutAction } from '@/actions/auth'
 
 /** Props for {@link UserMenu}. */
 export type UserMenuProps = Record<string, never>
@@ -32,7 +33,7 @@ export const UserMenu: FC<UserMenuProps> = () => {
   }, [])
 
   const handleSignOut = async () => {
-    await getSupabaseClient().auth.signOut()
+    await Promise.all([signOutAction(), getSupabaseClient().auth.signOut()])
     setEmail(null)
     setOpen(false)
   }
