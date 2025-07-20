@@ -28,6 +28,7 @@
   },
   "packageManager": "yarn@4.9.2",
   "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.51.0"
   }
 }
