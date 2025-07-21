@@ -1,10 +1,19 @@
 import { LRUCache } from 'lru-cache'
 
-interface RateLimiter {
+/** Milliseconds before an entry expires. */
+const TTL_MS = 60_000
+
+/** Maximum number of keys to track. */
+const MAX_KEYS = 1000
+
+export interface RateLimiter {
+  /**
+   * Returns `true` if the action is allowed for the key.
+   */
   allow(key: string): boolean
 }
 
-const limiter = new LRUCache<string, true>({ max: 1000, ttl: 60_000 })
+const limiter = new LRUCache<string, true>({ max: MAX_KEYS, ttl: TTL_MS })
 
 /**
  * Simple rate limiter allowing one action per key per minute.
