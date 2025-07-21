@@ -12,4 +12,8 @@ export async function requireAuthentication(): Promise<void> {
   if (!userId) {
     redirect('/signin')
   }
+  const verified = hdrs.get('x-email-verified')
+  if (verified !== 'true') {
+    redirect('/verify-email')
+  }
 }
