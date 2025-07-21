@@ -7,6 +7,15 @@ vi.mock('next/font/google', () => ({
   Geist_Mono: () => ({ variable: '' })
 }));
 
+vi.mock('../../actions/auth', () => ({ signOut: vi.fn() }));
+const signOut = vi.fn(async () => ({ error: null }));
+const onAuthStateChange = vi.fn(() => ({ data: { subscription: { unsubscribe: vi.fn() } } }));
+const getUser = vi.fn(async () => ({ data: { user: null } }));
+
+vi.mock('../../utils/supabase', () => ({
+  getSupabaseClient: () => ({ auth: { signOut, onAuthStateChange, getUser } })
+}));
+
 import RootLayout from '../layout';
 
 it('renders children', () => {
