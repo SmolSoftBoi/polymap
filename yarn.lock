@@ -1672,6 +1672,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lru-cache@npm:^7.10.10":
+  version: 7.10.10
+  resolution: "@types/lru-cache@npm:7.10.10"
+  dependencies:
+    lru-cache: "npm:*"
+  checksum: 10c0/ab85558867cb059bebd42074c1cd517eb41efb1db22b9d26dfdc58df01c83ff9c212a562b4ec3d5936418ffb03e626a0f30463026aa5fb5ced41e3b4b4af057f
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 24.0.14
   resolution: "@types/node@npm:24.0.14"
@@ -4993,6 +5002,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:*":
+  version: 11.1.0
+  resolution: "lru-cache@npm:11.1.0"
+  checksum: 10c0/85c312f7113f65fae6a62de7985348649937eb34fb3d212811acbf6704dc322a421788aca253b62838f1f07049a84cc513d88f494e373d3756514ad263670a64
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0, lru-cache@npm:^10.4.3":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
@@ -7327,6 +7343,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6"
     "@testing-library/react": "npm:^15"
     "@testing-library/user-event": "npm:^14"
+    "@types/lru-cache": "npm:^7.10.10"
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"

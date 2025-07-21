@@ -29,6 +29,7 @@
     "@testing-library/jest-dom": "^6",
     "@testing-library/react": "^15",
     "@testing-library/user-event": "^14",
+    "@types/lru-cache": "^7.10.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
