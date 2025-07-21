@@ -33,3 +33,16 @@ export async function signOut() {
   const supabase = createServerActionClient({ cookies })
   return supabase.auth.signOut()
 }
+
+/**
+ * Sends a magic login link if the rate limiter allows it.
+ */
+export async function sendMagicLink(email: string) {
+  const { rateLimiter } = await import('@/utils/rateLimit')
+  if (!rateLimiter.allow(email)) {
+    return { error: 'Please wait before requesting another link.' }
+  }
+  const supabase = createServerActionClient({ cookies })
+  const { error } = await supabase.auth.signInWithOtp({ email })
+  return { error: error?.message ?? null }
+}
