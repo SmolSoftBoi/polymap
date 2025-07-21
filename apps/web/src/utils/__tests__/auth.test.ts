@@ -17,8 +17,16 @@ it('redirects when user header missing', async () => {
   expect(redirectMock).toHaveBeenCalledWith('/signin')
 })
 
-it('does nothing when user header present', async () => {
+it('redirects when email not verified', async () => {
   headersMock.mockResolvedValue(new Headers({ 'x-user-id': '1' }))
+  await requireAuthentication()
+  expect(redirectMock).toHaveBeenCalledWith('/verify-email')
+})
+
+it('does nothing when verified', async () => {
+  headersMock.mockResolvedValue(
+    new Headers({ 'x-user-id': '1', 'x-email-verified': 'true' })
+  )
   await requireAuthentication()
   expect(redirectMock).not.toHaveBeenCalled()
 })

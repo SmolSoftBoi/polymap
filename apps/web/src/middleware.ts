@@ -15,7 +15,12 @@ export async function middleware(req: NextRequest) {
   const {
     data: { user }
   } = await supabase.auth.getUser()
-  if (user?.id) res.headers.set('x-user-id', user.id)
+  if (user?.id) {
+    res.headers.set('x-user-id', user.id)
+    if (user.email_confirmed_at) {
+      res.headers.set('x-email-verified', 'true')
+    }
+  }
   return res
 }
 
