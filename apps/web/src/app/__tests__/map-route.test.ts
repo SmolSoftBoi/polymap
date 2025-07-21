@@ -17,7 +17,7 @@ test('returns map data for user with access', async () => {
   getUser.mockResolvedValueOnce({ data: { user: { id: '1' } } })
   maybeSingle.mockResolvedValueOnce({ data: { id: '1' } })
   const res = await GET(new NextRequest('http://localhost/api/maps/1'), {
-    params: { id: '1' }
+    params: Promise.resolve({ id: '1' })
   })
   expect(res.status).toBe(200)
 })
@@ -25,7 +25,7 @@ test('returns map data for user with access', async () => {
 test('returns 401 when unauthenticated', async () => {
   getUser.mockResolvedValueOnce({ data: { user: null } })
   const res = await GET(new NextRequest('http://localhost/api/maps/1'), {
-    params: { id: '1' }
+    params: Promise.resolve({ id: '1' })
   })
   expect(res.status).toBe(401)
 })
@@ -34,7 +34,7 @@ test('returns 404 when no map found', async () => {
   getUser.mockResolvedValueOnce({ data: { user: { id: '1' } } })
   maybeSingle.mockResolvedValueOnce({ data: null })
   const res = await GET(new NextRequest('http://localhost/api/maps/99'), {
-    params: { id: '99' }
+    params: Promise.resolve({ id: '99' })
   })
   expect(res.status).toBe(404)
 })
