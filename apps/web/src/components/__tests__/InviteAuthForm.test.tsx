@@ -8,6 +8,10 @@ vi.mock('../../utils/supabase', () => ({
   getSupabaseClient: () => ({ auth: { verifyOtp, updateUser } })
 }))
 
+global.fetch = vi.fn(async () =>
+  new Response(JSON.stringify({ success: true }), { status: 200 })
+) as unknown as typeof fetch
+
 import { InviteAuthForm } from '../InviteAuthForm'
 
 describe('InviteAuthForm', () => {
@@ -22,5 +26,10 @@ describe('InviteAuthForm', () => {
       type: 'invite'
     })
     expect(updateUser).toHaveBeenCalledWith({ password: 'secret' })
+    expect(global.fetch).toHaveBeenCalledWith('/api/invite/accept', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: 'tok' })
+    })
   })
 })

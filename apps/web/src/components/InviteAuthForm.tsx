@@ -38,6 +38,16 @@ export const InviteAuthForm: FC<InviteAuthFormProps> = ({ token, onSuccess }) =>
       setError(updateError.message)
       return
     }
+    const res = await fetch('/api/invite/accept', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    })
+    if (!res.ok) {
+      const data = await res.json()
+      setError(data.error)
+      return
+    }
     onSuccess?.()
   }
 
