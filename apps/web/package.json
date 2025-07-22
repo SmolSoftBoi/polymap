@@ -15,6 +15,7 @@
     "e2e:ci": "playwright test"
   },
   "dependencies": {
+    "jsonwebtoken": "^9.0.2",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -29,6 +30,7 @@
     "@testing-library/jest-dom": "^6",
     "@testing-library/react": "^15",
     "@testing-library/user-event": "^14",
+    "@types/jsonwebtoken": "^9",
     "@types/lru-cache": "^7.10.10",
     "@types/node": "^20",
     "@types/react": "^19",
