@@ -2,7 +2,9 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 
-vi.mock('../../actions/auth', () => ({ signIn: vi.fn(async () => ({ error: null })) }))
+vi.mock('../../actions/auth', () => ({
+  signIn: vi.fn(async () => ({ error: null, welcome: true }))
+}))
 import { signIn } from '../../actions/auth'
 
 import { SignInForm } from '../SignInForm'
@@ -14,5 +16,6 @@ describe('SignInForm', () => {
     await userEvent.type(screen.getByLabelText(/password/i), 'secret')
     await userEvent.click(screen.getByRole('button', { name: /sign in/i }))
     expect(signIn).toHaveBeenCalledWith({ email: 'a@b.com', password: 'secret' })
+    expect(screen.getByText(/welcome to polymap/i)).toBeInTheDocument()
   })
 })
