@@ -13,8 +13,16 @@ interface Credentials {
  */
 export async function signIn({ email, password }: Credentials) {
   const supabase = createServerActionClient({ cookies })
-  const { error } = await supabase.auth.signInWithPassword({ email, password })
-  return { error: error?.message ?? null }
+  const {
+    data,
+    error
+  } = await supabase.auth.signInWithPassword({ email, password })
+  let welcome = false
+  if (data.user?.user_metadata.firstLogin) {
+    welcome = true
+    await supabase.auth.updateUser({ data: { firstLogin: false } })
+  }
+  return { error: error?.message ?? null, welcome }
 }
 
 /**
@@ -22,7 +30,11 @@ export async function signIn({ email, password }: Credentials) {
  */
 export async function signUp({ email, password }: Credentials) {
   const supabase = createServerActionClient({ cookies })
-  const { error } = await supabase.auth.signUp({ email, password })
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: { data: { firstLogin: true } }
+  })
   return { error: error?.message ?? null }
 }
 

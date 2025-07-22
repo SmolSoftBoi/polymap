@@ -16,14 +16,18 @@ export const SignInForm: FC<SignInFormProps> = ({ onSuccess }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
+  const [welcome, setWelcome] = useState(false)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
-    const { error } = await signIn({ email, password })
+    const { error, welcome: firstLogin } = await signIn({ email, password })
     if (error) {
       setError(error)
       return
+    }
+    if (firstLogin) {
+      setWelcome(true)
     }
     onSuccess?.()
   }
@@ -53,6 +57,9 @@ export const SignInForm: FC<SignInFormProps> = ({ onSuccess }) => {
         />
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
+      {welcome && (
+        <p className="text-sm text-green-600">Welcome to Polymap 🎉</p>
+      )}
       <button type="submit" className="rounded bg-primary px-4 py-2 text-white">
         Sign In
       </button>
