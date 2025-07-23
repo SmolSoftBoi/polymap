@@ -3,15 +3,19 @@
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 
-interface Credentials {
+interface SignInCredentials {
   email: string
   password: string
+}
+
+interface SignUpCredentials extends SignInCredentials {
+  name: string
 }
 
 /**
  * Signs the user in and stores the session in an HTTP-only cookie.
  */
-export async function signIn({ email, password }: Credentials) {
+export async function signIn({ email, password }: SignInCredentials) {
   const supabase = createServerActionClient({ cookies })
   const {
     data,
@@ -28,12 +32,12 @@ export async function signIn({ email, password }: Credentials) {
 /**
  * Registers the user and stores the session in an HTTP-only cookie.
  */
-export async function signUp({ email, password }: Credentials) {
+export async function signUp({ email, password, name }: SignUpCredentials) {
   const supabase = createServerActionClient({ cookies })
   const { error } = await supabase.auth.signUp({
     email,
     password,
-    options: { data: { firstLogin: true } }
+    options: { data: { firstLogin: true, name } }
   })
   return { error: error?.message ?? null }
 }
