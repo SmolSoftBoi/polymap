@@ -1,5 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { getSupabaseClient } from '../supabase'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const ORIGINAL_ENV = process.env
 
@@ -10,11 +9,19 @@ describe('getSupabaseClient', () => {
 
   afterEach(() => {
     process.env = ORIGINAL_ENV
+    vi.resetModules()
   })
 
-  it('returns the same instance on multiple calls', () => {
+  it('returns the same instance on multiple calls', async () => {
+    const { getSupabaseClient } = await import('../supabase')
     const first = getSupabaseClient()
     const second = getSupabaseClient()
     expect(first).toBe(second)
+  })
+
+  it('throws when environment variables are missing', async () => {
+    process.env = {} as NodeJS.ProcessEnv
+    const { getSupabaseClient } = await import('../supabase')
+    expect(() => getSupabaseClient()).toThrow('Supabase credentials missing')
   })
 })
