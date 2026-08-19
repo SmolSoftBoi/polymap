@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.2",
-    "next": "15.3.4",
+    "next": "15.5.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-force-graph-2d": "^1.27.1"
@@ -44,7 +44,7 @@
     "prettier-plugin-tailwindcss": "^0.6.13",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vite": "^5",
+    "vite": "^8",
     "vitest": "^1"
   }
 }
