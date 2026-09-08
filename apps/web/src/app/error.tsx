@@ -1,6 +1,15 @@
 'use client';
 
-import Link from 'next/link';
+// `Link` uses router context which may be unavailable during error rendering.
+// Use a regular anchor instead to avoid runtime crashes.
+import type { AnchorHTMLAttributes } from 'react';
+
+function HomeLink(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    /* eslint-disable-next-line @next/next/no-html-link-for-pages */
+    <a {...props} href="/" className="text-blue-600 underline block mt-2" />
+  );
+}
 
 export interface ErrorPageProps {
   /** Error thrown during rendering. */
@@ -20,9 +29,7 @@ export default function GlobalError({ error, reset }: ErrorPageProps) {
       <button className="text-blue-600 underline" onClick={reset}>
         Try again
       </button>
-      <Link className="text-blue-600 underline block mt-2" href="/">
-        Return home
-      </Link>
+      <HomeLink>Return home</HomeLink>
     </div>
   );
 }
